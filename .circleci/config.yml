@@ -22,8 +22,9 @@ jobs:
           name: Run Tests
           command: yarn test
       - run: yarn build
-      - store_artifacts
-
+      - store_artifacts:
+          path: /bin/build
+          
 workflows:
   orb-free-workflow:
     jobs:
