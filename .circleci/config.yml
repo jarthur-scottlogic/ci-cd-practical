@@ -10,7 +10,7 @@ jobs:
           # See the configuration reference documentation for more details on using restore_cache and save_cache steps
           # https://circleci.com/docs/2.0/configuration-reference/?section=reference#save_cache
           keys:
-            - yarn-packages-v2-{{ checksum "yarn.lock" }}
+            - yarn-packages-v3-{{ checksum "yarn.lock" }}
       - run:
           name: install packages
           command: yarn install --immutable
@@ -19,9 +19,9 @@ jobs:
       - run:
           command: dir ./node_modules
       - save_cache:
-          key: yarn-packages-v2-{{ checksum "yarn.lock" }}
+          key: yarn-packages-v3-{{ checksum "yarn.lock" }}
           paths:
-            - /node_modules
+            - ./node_modules
       - run:
           name: Run Tests
           command: yarn test
