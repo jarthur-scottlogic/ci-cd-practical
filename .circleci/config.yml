@@ -32,7 +32,7 @@ jobs:
           at: ./build
       - run:
           name: "Publish Release on GitHub"
-          command:  ghr -t $GITHUB_TOKEN v0.0.1 ./build
+          command:  ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/
 workflows:
   orb-free-workflow:
     jobs:
