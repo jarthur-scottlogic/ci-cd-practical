@@ -23,7 +23,7 @@ jobs:
           command: yarn test
       - run: yarn build
       - store_artifacts:
-          path: /bin/build
+          path: ./build
           
 workflows:
   orb-free-workflow:
