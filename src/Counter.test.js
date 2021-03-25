@@ -8,6 +8,7 @@ configure({adapter: new Adapter()});
 const getCounter = counterWrapper => counterWrapper.find('.Counter');
 const getCountMessage = counterWrapper => getCounter(counterWrapper).find('.Counter-Count');
 const getIncrementButton = counterWrapper => getCounter(counterWrapper).find('.Counter-Button.Counter-Increment');
+const getDecrementButton = counterWrapper => getCounter(counterWrapper).find('.Counter-Button.Counter-Decrement');
 
 it('renders without crashing', () => {
   shallow(<Counter />);
@@ -68,3 +69,15 @@ describe('increasing the count', () => {
     expect(getCountMessage(counter).text()).toBe('You clicked 5 times');
   });
 });
+
+describe('decreasing the count', () => {
+    it('decreases the count by one when the decrement button is clicked once', () => {
+        const counter = shallow(<Counter />);
+
+        expect(getCountMessage(counter).text()).toBe('You clicked 0 times');
+
+        getDecrementButton(counter).simulate('click');
+
+        expect(getCountMessage(counter).text()).toBe('You clicked -1 times');
+    });
+})
