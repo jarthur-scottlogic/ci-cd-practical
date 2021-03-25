@@ -20,9 +20,18 @@ jobs:
             - ./node_modules
       - run:
           name: Run Tests
-          command: yarn test
+          command: yarn test#
+  build_and_save:
+    docker:
+      - image: cimg/node:14.15.4
+    steps:
+      - checkout
+      - run: yarn build
+      - store_artifacts:
+          path: /bin/build
 
 workflows:
   orb-free-workflow:
     jobs:
       - test
+      - build_and_save
