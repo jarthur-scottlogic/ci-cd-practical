@@ -19,11 +19,19 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Run Tests
-          command: yarn test
+          name: Run tests with JUnit as reporter
+          command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
+      - store_test_results:
+          path: ./reports/junit/
+      - store_artifacts:
+          path: ./reports/junit
       - run: yarn build
       - store_artifacts:
           path: ./build
+      
+
   publish-github-release:
     docker:
       - image: circleci/golang:1.10
