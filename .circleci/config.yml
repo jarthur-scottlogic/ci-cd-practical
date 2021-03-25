@@ -20,7 +20,7 @@ jobs:
             - ./node_modules
       - run:
           name: Run Tests
-          command: yarn test#
+          command: yarn test
   build_and_save:
     docker:
       - image: cimg/node:14.15.4
