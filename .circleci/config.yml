@@ -33,12 +33,12 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
-            VERSION=0.0.1
+            VERSION=v0.0
             ghr -t "${GITHUB_TOKEN}" \
             -u "${CIRCLE_PROJECT_USERNAME}" \
             -r "${CIRCLE_PROJECT_REPONAME}" \
             -c "${CIRCLE_SHA1}" \
-            v0.1.9 build/
+            v0.0 ./build
 workflows:
   orb-free-workflow:
     jobs:
