@@ -21,6 +21,7 @@ jobs:
       - run:
           name: Run Tests
           command: yarn test
+      - run: mkdir test-results
       - store_test_results:
           path: test-results
 
