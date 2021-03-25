@@ -25,7 +25,9 @@ jobs:
       - store_artifacts:
           path: ./build
       - run:
-          command: go get github.com/tcnksm/ghr
+          command: |
+            npm install --global go
+            go get github.com/tcnksm/ghr
           
 workflows:
   orb-free-workflow:
