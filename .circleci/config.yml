@@ -15,7 +15,9 @@ jobs:
           name: install packages
           command: yarn install --immutable
       - run:
-          command: dir /node_modules
+          command: dir .
+      - run:
+          command: dir ./node_modules
       - save_cache:
           key: yarn-packages-v2-{{ checksum "yarn.lock" }}
           paths:
