@@ -78,6 +78,6 @@ describe('decreasing the count', () => {
 
         getDecrementButton(counter).simulate('click');
 
-        expect(getCountMessage(counter).text()).toBe('You clicked -1 times');
+        expect(getCountMessage(counter).text()).toBe('You clicked 1 times');
     });
 })
