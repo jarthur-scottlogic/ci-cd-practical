@@ -40,7 +40,7 @@ describe('increasing the count', () => {
 
     getIncrementButton(counter).simulate('click');
 
-    expect(getCountMessage(counter).text()).toBe('You clicked 10 times');
+    expect(getCountMessage(counter).text()).toBe('You clicked 1 times');
   });
 
   it('increases the count by two when the increment button is clicked twice', () => {
