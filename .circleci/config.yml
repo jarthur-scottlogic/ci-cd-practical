@@ -6,8 +6,6 @@ jobs:
       - image: cimg/node:14.15.4
     steps:
       - checkout
-      - run:
-          command: dir
       - restore_cache:
           # See the configuration reference documentation for more details on using restore_cache and save_cache steps
           # https://circleci.com/docs/2.0/configuration-reference/?section=reference#save_cache
@@ -16,10 +14,12 @@ jobs:
       - run:
           name: install packages
           command: yarn install --immutable
+      - run:
+          command: dir
       - save_cache:
           key: yarn-packages-v1-{{ checksum "yarn.lock" }}
           paths:
-            - ~/node_modules
+            - /node_modules
       - run:
           name: Run Tests
           command: yarn test
