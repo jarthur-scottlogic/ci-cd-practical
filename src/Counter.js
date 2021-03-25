@@ -5,6 +5,7 @@ class Counter extends Component {
     super(props);
     this.state = { count: 0 };
     this.handleIncrementClick = this.handleIncrementClick.bind(this);
+    this.handleDecrementClick = this.handleDecrementClick.bind(this);
   }
 
   handleIncrementClick() {
