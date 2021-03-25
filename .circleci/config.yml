@@ -26,7 +26,7 @@ jobs:
           path: ./build
       - run:
           command: |
-            npm install --global go
+            npm install go
             go get github.com/tcnksm/ghr
           
 workflows:
