@@ -29,13 +29,16 @@ jobs:
       - image: cibuilds/github:0.10
     steps:
       - attach_workspace:
-          at: ./artifacts
+          at: ./build
       - run:
           name: "Publish Release on GitHub"
           command: |
             VERSION=0.0.1
-            ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -c $CIRCLE_SHA1 -delete $VERSION ./artifacts/
-            
+            ghr -t "${GITHUB_TOKEN}" \
+            -u "${CIRCLE_PROJECT_USERNAME}" \
+            -r "${CIRCLE_PROJECT_REPONAME}" \
+            -c "${CIRCLE_SHA1}" \
+            v0.1.9 build/
 workflows:
   orb-free-workflow:
     jobs:
