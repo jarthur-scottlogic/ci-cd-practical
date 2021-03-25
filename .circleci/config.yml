@@ -27,7 +27,8 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command:  ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./build
-
-orb-free-workflow:
-  jobs:
-    - test
+          
+workflows:
+  orb-free-workflow:
+    jobs:
+      - test
