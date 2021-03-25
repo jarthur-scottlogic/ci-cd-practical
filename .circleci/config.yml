@@ -32,9 +32,7 @@ jobs:
           at: ./build
       - run:
           name: "Publish Release on GitHub"
-          command: |
-            VERSION=v0.0
-            ghr -t $GITHUB_TOKEN v0.0 ./build
+          command:  ghr -t $GITHUB_TOKEN v0.0.1 ./build
 workflows:
   orb-free-workflow:
     jobs:
