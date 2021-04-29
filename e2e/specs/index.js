@@ -10,7 +10,10 @@ if (!BASE_URL) {
 
 let browser;
 let page;
-
+browser = await puppeteer.launch({
+  headless: process.env.CI ? true : false,
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+});
 beforeAll(async () => {
   browser = await puppeteer.launch({
       headless: process.env.CI ? true : false,
