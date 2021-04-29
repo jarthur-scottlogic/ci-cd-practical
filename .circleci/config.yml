@@ -61,7 +61,7 @@ jobs:
     steps:
       - run: yarn add --dev --exact puppeteer --ignore-engines
       - run: yarn add --dev --exact  jest-junit  --ignore-engines
-      - run: ./node_modules/jest -c e2e/jestConfig.json --runInBand
+      - run: npx jest -c e2e/jestConfig.json --runInBand
     
 
 
