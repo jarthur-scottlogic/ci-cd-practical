@@ -47,8 +47,8 @@ jobs:
   deployment:
     production:
       branch: master
-        commands: 
-          - surge build/ https://james-arthur-development.surge.sh
+      commands: 
+        - surge build/ https://james-arthur-development.surge.sh
              
 workflows:
   orb-free-workflow:
