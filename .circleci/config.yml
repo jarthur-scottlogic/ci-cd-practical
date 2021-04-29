@@ -51,9 +51,12 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project
+      - run: yarn build
+      - store_artifacts:
+          path: ./build
       - run:
           name: Deploy to Staging
-          command: npx surge build/ https://james-arthur-staging.surge.sh
+          command: npx surge ./build https://james-arthur-staging.surge.sh
 
 workflows:
   orb-free-workflow:
