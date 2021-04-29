@@ -62,6 +62,8 @@ jobs:
       - checkout
       - run: yarn add --dev --exact puppeteer jest-junit cross-env --ignore-engines
       - run: yarn e2e
+      - run: yarn add --dev --exact lighthouse
+      - run: yarn performance
 
 workflows:
   orb-free-workflow:
