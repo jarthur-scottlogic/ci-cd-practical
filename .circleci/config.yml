@@ -60,6 +60,4 @@ workflows:
     jobs:
       - test
       - publish-github-release
-      - deploy_to_staging:
-          requires:
-            - test
+      - deploy_to_staging
