@@ -30,6 +30,7 @@ jobs:
       - run: yarn build
       - store_artifacts:
           path: ./build
+      - run: npx surge ./build https://james-arthur-staging.surge.sh
       
 
   publish-github-release:
@@ -44,19 +45,7 @@ jobs:
             go get github.com/tcnksm/ghr
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./build/
 
-  deploy_to_staging:
-    docker:
-      - image: cimg/node:14.15.4
-    working_directory: ~/project
-    steps:
-      - attach_workspace:
-          at: ~/project
-      - run: yarn build
-      - store_artifacts:
-          path: ./build
-      - run:
-          name: Deploy to Staging
-          command: npx surge ./build https://james-arthur-staging.surge.sh
+
 
 workflows:
   orb-free-workflow:
