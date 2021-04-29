@@ -50,6 +50,7 @@ jobs:
       steps:
         - checkout
         - run: npm install surge
+        - run: ls
         - run: ./node_modules/surge/lib/cli.js ./build/ https://james-arthur-development.surge.sh
 
 workflows:
