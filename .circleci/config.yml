@@ -50,7 +50,8 @@ jobs:
       steps:
         - checkout
         - run: npm install surge
-        - run: ./node_modules/surge/lib/cli.js --project ./ --domain inconclusive-transport.surge.sh
+        - run: ./node_modules/surge/lib/cli.js --project ./ --domain james-arthur-development.surge.sh
+        
 workflows:
   orb-free-workflow:
     jobs:
