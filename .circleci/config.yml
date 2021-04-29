@@ -69,3 +69,6 @@ workflows:
       - test
       - publish-github-release
       - deploy_to_staging
+      - test_staging:
+          requires:
+            - deploy_to_staging
