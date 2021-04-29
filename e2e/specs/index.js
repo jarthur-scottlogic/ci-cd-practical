@@ -8,12 +8,12 @@ if (!BASE_URL) {
   throw new Error('"process.env.BASE_URL" must be set');
 }
 
-let browser;
-let page;
-browser = await puppeteer.launch({
+let browser = puppeteer.launch({
   headless: process.env.CI ? true : false,
   args: ['--no-sandbox', '--disable-setuid-sandbox'],
 });
+console.log(browser);
+let page;
 beforeAll(async () => {
   browser = await puppeteer.launch({
       headless: process.env.CI ? true : false,
