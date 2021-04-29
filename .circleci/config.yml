@@ -60,7 +60,7 @@ jobs:
       - image: circleci/node:10.15.0-jessie-browsers
     steps:
       - checkout
-      - run: yarn add --dev --exact puppeteer jest-junit cross-env
+      - run: yarn add --dev --exact puppeteer jest-junit cross-env --ignore-engines
       - run: yarn e2e
 
 workflows:
