@@ -60,7 +60,7 @@ jobs:
       - image: circleci/node:10.17.0-jessie-browsers
     steps:
       - run: yarn add --dev --exact cross-env
-      - run: yarn add --dev --exact puppeteer
+      - run: yarn add --dev --exact puppeteer --ignore-engines
       - run: yarn add --dev --exact  jest-junit
       - run: cross-env JEST_JUNIT_OUTPUT=\"./test-results/acceptance/results.xml\" cross-env BASE_URL=\"'https://james-arthur-staging.surge.sh'\" jest -c e2e/jestConfig.json --runInBand
     
