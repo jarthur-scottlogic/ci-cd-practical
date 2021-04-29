@@ -62,7 +62,7 @@ jobs:
       - run: npm install cross-env
       - run: yarn add --dev --exact puppeteer --ignore-engines
       - run: yarn add --dev --exact  jest-junit  --ignore-engines
-      - run: cross-env JEST_JUNIT_OUTPUT=\"./test-results/acceptance/results.xml\" cross-env BASE_URL=\"'https://james-arthur-staging.surge.sh'\" jest -c e2e/jestConfig.json --runInBand
+      - run: ./node_modules/.bin/cross-env JEST_JUNIT_OUTPUT=\"./test-results/acceptance/results.xml\" cross-env BASE_URL=\"'https://james-arthur-staging.surge.sh'\" jest -c e2e/jestConfig.json --runInBand
     
 
   
