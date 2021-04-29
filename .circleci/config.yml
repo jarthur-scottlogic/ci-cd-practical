@@ -54,7 +54,16 @@ jobs:
       - run:
           name: Deploy to Staging
           command: npx surge ./build/ https://james-arthur-staging.surge.sh
+  
+  test_staging:
+    docker:
+      - image: cimg/node-14.16.1-browsers
+    steps:
+      - run: yarn add --dev --exact puppeteer jest-junit cross-env
+      - run: cross-env JEST_JUNIT_OUTPUT=\"./test-results/acceptance/results.xml\" cross-env BASE_URL=\"'https://james-arthur-staging.surge.sh'\" jest -c e2e/jestConfig.json --runInBand
+    
 
+  
 workflows:
   orb-free-workflow:
     jobs:
