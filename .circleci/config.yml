@@ -45,11 +45,10 @@ jobs:
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./build/
 
   deployment:
-    docker:
-        - image: cimg/node:14.15.4
-    steps:
-      - run:
-          command: surge build/ https://james-arthur-development.surge.sh
+    production:
+      branch: master
+        commands: 
+          - surge build/ https://james-arthur-development.surge.sh
              
 workflows:
   orb-free-workflow:
