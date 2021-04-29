@@ -45,15 +45,15 @@ jobs:
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./build/
 
   deploy_to_staging:
-  docker:
-    - image: cimg/node:14.15.4
-  working_directory: ~/project
-  steps:
-    - attach_workspace:
-        at: ~/project
-    - run:
-        name: Deploy to Staging
-        command: npx surge build/ https://james-arthur-staging.surge.sh
+    docker:
+      - image: cimg/node:14.15.4
+    working_directory: ~/project
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Deploy to Staging
+          command: npx surge build/ https://james-arthur-staging.surge.sh
 
 workflows:
   orb-free-workflow:
