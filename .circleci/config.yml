@@ -57,7 +57,7 @@ jobs:
   
   test_staging:
     docker:
-      - image: circleci/node:10.17.0-jessie-browsers
+      - image: circleci/node:10.15.0-jessie-browsers
     steps:
       - run: yarn add --dev --exact cross-env
       - run: yarn add --dev --exact puppeteer --ignore-engines
