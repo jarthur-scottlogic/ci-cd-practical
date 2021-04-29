@@ -52,6 +52,3 @@ workflows:
     jobs:
       - test
       - publish-github-release
-      - deploy_to_staging:
-          requires:
-            - test
