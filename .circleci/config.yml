@@ -48,7 +48,7 @@ jobs:
     docker:
         - image: cimg/node:14.15.4
     steps:
-      - run: npm install --global surge
+      - run: npm install surge
       - run: surge build/ https://james-arthur-development.surge.sh
 
 workflows:
