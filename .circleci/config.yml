@@ -72,3 +72,7 @@ workflows:
       - test_staging:
           requires:
             - deploy_to_staging
+      - hold_production_deploy:
+          type: approval
+          requires:
+            - test_staging
