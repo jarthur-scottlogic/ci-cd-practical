@@ -18,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "e2e": "cross-env JEST_JUNIT_OUTPUT=\"./test-results/acceptance/results.xml\" cross-env BASE_URL=\"'https://james-arthur-staging.surge.sh'\" jest -c e2e/jestConfig.json --runInBand"
   },
   "eslintConfig": {
     "extends": [
