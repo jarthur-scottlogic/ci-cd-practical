@@ -44,12 +44,11 @@ jobs:
             go get github.com/tcnksm/ghr
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./build/
 
-  deployment:
-    docker:
-        - image: cimg/node:14.15.4
-    steps:
-      - run: npm install --save-dev surge
-      - run: surge build/ https://james-arthur-development.surge.sh
+
+deployment:
+  production:
+    branch: master
+    commands: "npm run compile && surge --project ./ --domain james-arthur-development.surge.sh"
 
 workflows:
   orb-free-workflow:
