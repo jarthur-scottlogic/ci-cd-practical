@@ -44,15 +44,18 @@ jobs:
             go get github.com/tcnksm/ghr
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./build/
 
-
-deployment:
-  production:
-    branch: master
-    commands: "npm run compile && surge --project ./ --domain james-arthur-development.surge.sh"
-
+  deploy:
+      docker:
+        - image: circleci/node:7.10
+      steps:
+        - checkout
+        - run: npm install surge
+        - run: ./node_modules/surge/lib/cli.js --project ./ --domain inconclusive-transport.surge.sh
 workflows:
   orb-free-workflow:
     jobs:
       - test
       - publish-github-release
-      - deployment
+      - deploy:
+          requires:
+            - test
