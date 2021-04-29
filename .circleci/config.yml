@@ -60,4 +60,7 @@ workflows:
     jobs:
       - test
       - publish-github-release
-      - deploy_to_staging
+      - deploy_to_staging:
+          filters:
+            branches:
+              only: master
